@@ -87,7 +87,7 @@ Ela utiliza sensores para monitoramento de umidade e luminosidade, atuando de fo
 
 Preencha as informações de acordo com a imagem abaixo para configurar corretamente o ambiente MQTT:
 
-![image](https://github.com/user-attachments/assets/45702ec1-a576-42b1-8d7e-4f38f0d45fda)
+![broker mqtt](https://github.com/user-attachments/assets/5ee29282-a5ce-48e2-b066-3fa8f2e38814)
 
 Detalhes do Broker
 - **Host:** mqtt-dashboard.com
