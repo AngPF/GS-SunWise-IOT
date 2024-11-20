@@ -71,15 +71,15 @@ Ela utiliza sensores para monitoramento de umidade e luminosidade, atuando de fo
   
 - Flow 2: Simulação com dados enviados via MQTT.
 
- - Caso o código com MQTT rode normalmente:
-  - Clique no botão "Implementar" no Node-RED e espere o status do nó "mqtt in" aparecer como "conectado"
-  - Abra os dashboards do Node-RED
-  - Rode o projeto no Wokwi. Espere aparecer o json com as informações no monitor serial, enquanto esse json não aparecer, isso significa que o servidor ainda está se conectando com o MQTT.
-  - Volte a página de Dashboards e veja as informações enviadas do circuito aparecerem nos gráficos do Node-Red.
+   - Caso o código com MQTT rode normalmente:
+       - Clique no botão "Implementar" no Node-RED e espere o status do nó "mqtt in" aparecer como "conectado"
+       - Abra os dashboards do Node-RED
+       - Rode o projeto no Wokwi. Espere aparecer o json com as informações no monitor serial, enquanto esse json não aparecer, isso significa que o servidor ainda está se conectando com o MQTT.
+       - Volte a página de Dashboards e veja as informações enviadas do circuito aparecerem nos gráficos do Node-Red.
 
- - Caso o código com MQTT não funcione por instabilidades no servidor do Wokwi:
-  - Configure seu broker MQTT e insira os detalhes no nó MQTT como descrito abaixo no tópico "Configurações MQTT".
-  - Teste os valores transmitidos para exibição no dashboard.
+   - Caso o código com MQTT não funcione por instabilidades no servidor do Wokwi:
+       - Configure seu broker MQTT e insira os detalhes no nó MQTT como descrito abaixo no tópico "Configurações MQTT".
+       - Teste os valores transmitidos para exibição no dashboard.
 
 ----
 
