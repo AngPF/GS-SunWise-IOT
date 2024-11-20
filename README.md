@@ -22,8 +22,8 @@ Ela utiliza sensores para monitoramento de umidade e luminosidade, atuando de fo
 ### Links Importantes
 - Repositório GitHub: [GS-SunWise-IOT](https://github.com/AngPF/GS-SunWise-IOT.git)
 - Projeto no Wokwi:
-    - [Simulação funcional no Wokwi](https://wokwi.com/projects/414393427034769409)
-    - [Simulação com MQTT](https://wokwi.com/projects/414636232313826305) (não funcional devido a instabilidades)
+    - [Simulação com MQTT](https://wokwi.com/projects/414636232313826305) (Poderá haver dificuldades na compilação por instabilidades no servidor do Wokwi)
+    - [Simulação funcional no Wokwi - sem MQTT ](https://wokwi.com/projects/414393427034769409)
   
 - Vídeo explicativo: [Vídeo explicativo](https://youtu.be/r-_TcEO-0Kc)
 
@@ -32,28 +32,35 @@ Ela utiliza sensores para monitoramento de umidade e luminosidade, atuando de fo
 ## Configuração do Simulador Wokwi
 1. Acessar o Projeto:
 
-- Clique no [link funcional do Wokwi.](https://wokwi.com/projects/414393427034769409)
+- Clique no [link funcional do Wokwi.](https://wokwi.com/projects/414636232313826305)
 - Revise o circuito que contém:
     - Sensor DHT22 (umidade e temperatura).
     - Sensor de luminosidade.
     - Servo Motor representando a válvula de irrigação.
     - LEDs representando iluminação controlada.
+    - LCD1602 para mostrar o status da válvula de irrigação e taxa de umidade.
 
 2. Testar o Circuito:
 
+- No LCD1602, acompanhe os valores de:
+  - Valor da taxa de umidade
+  - Status da válvula de irrigação
+
 - No monitor serial, acompanhe os valores de:
-  - Umidade do solo.
-  - Estado da válvula de irrigação (aberta/fechada).
-  - Estado das luzes (acesas/apagadas).
+  - Valor da umidade do solo.
+  - Valor de Luminosidade.
+  - Valor da temperatura
+ 
+  Esses valores são enviados via json para o MQTT, assim que a conexão com o topic do MQTT é feita, na compilação do projeto no simulador do WOKWI.
 
 ----
 
 ## Simulação no Node-RED
 
 1. Importar Flows
-- Baixe os arquivos de flows disponíveis no [GitHub](https://github.com/AngPF/GS-SunWise-IOT.git).
+- Baixe o arquivo de flows disponíveis no [GitHub](https://github.com/AngPF/GS-SunWise-IOT.git).
 - Importe os flows no Node-RED:
-  - Vá em Menu > Import > Cole o JSON do flow.
+  - Vá em Menu > Import > Selecione o arquivo "Flow-final" baixado do repositório.
     
 2. Configurar e Testar
 - Flow 1: Simulação com valores de entrada via slider.
@@ -63,7 +70,15 @@ Ela utiliza sensores para monitoramento de umidade e luminosidade, atuando de fo
         - Histórico gráfico.
   
 - Flow 2: Simulação com dados enviados via MQTT.
-  - Configure seu broker MQTT e insira os detalhes no nó MQTT.
+
+ - Caso o código com MQTT rode normalmente:
+  - Clique no botão "Implementar" no Node-RED e espere o status do nó "mqtt in" aparecer como "conectado"
+  - Abra os dashboards do Node-RED
+  - Rode o projeto no Wokwi. Espere aparecer o json com as informações no monitor serial, enquanto esse json não aparecer, isso significa que o servidor ainda está se conectando com o MQTT.
+  - Volte a página de Dashboards e veja as informações enviadas do circuito aparecerem nos gráficos do Node-Red.
+
+ - Caso o código com MQTT não funcione por instabilidades no servidor do Wokwi:
+  - Configure seu broker MQTT e insira os detalhes no nó MQTT como descrito abaixo no tópico "Configurações MQTT".
   - Teste os valores transmitidos para exibição no dashboard.
 
 ----
@@ -81,7 +96,7 @@ Detalhes do Broker
 #### Tópico Utilizados
 | **Tópico**            | **Descrição**                            | **Exemplo de Payload**                                                                |
 |-----------------------|------------------------------------------|--------------------------------------------------------------------------------------|
-| `testtopic/teste/gabi/oi`     | Envia dados do sensor para o dashboard      | `{ "umidade": 45, "temperatura": 22.5, "luminosidade": 4095 }`                       |
+| `fiap/iot/sensors`     | Envia dados do sensor para o dashboard      | `{ "umidade": 45, "temperatura": 22.5, "luminosidade": 4095 }`                       |
 
 ----
 
