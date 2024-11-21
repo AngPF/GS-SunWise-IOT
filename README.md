@@ -25,7 +25,7 @@ Ela utiliza sensores para monitoramento de umidade e luminosidade, atuando de fo
     - [Simulação com MQTT](https://wokwi.com/projects/414636232313826305) (Poderá haver dificuldades na compilação por instabilidades no servidor do Wokwi)
     - [Simulação funcional no Wokwi - sem MQTT ](https://wokwi.com/projects/414393427034769409)
   
-- Vídeo explicativo: [Vídeo explicativo](https://youtu.be/r-_TcEO-0Kc)
+- Vídeo explicativo: [Vídeo explicativo]([https://youtu.be/r-_TcEO-0Kc](https://youtu.be/1FAO4_O5Q_I))
 
 -----
 
